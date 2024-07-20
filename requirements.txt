@@ -23,7 +23,9 @@ python-dotenv
 apscheduler
 dill
 playwright
-threading
-sentence-transformer
-transformer
+sentence-transformers
+transformers
+python-binance
+tf-keras
+sentencepiece
 #-e .
