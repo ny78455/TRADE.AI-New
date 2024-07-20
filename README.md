@@ -1,5 +1,9 @@
 # Mad Astra: Advanced Algorithmic Trading Platform
 
+## Team Details
+**Team Name:** Mad Astra  
+**Team Leader:** Nitin Yadav
+
 ## Problem Statement: Algorithmic Trading
 
 Micro and nano entrepreneurs face significant challenges, including limited financial resources, inadequate business management skills, and insufficient market visibility. Additionally, the digital divide and lack of access to modern technologies impede their growth and competitiveness.
