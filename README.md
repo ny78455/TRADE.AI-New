@@ -96,8 +96,8 @@ Mad Astra’s advanced algorithmic trading platform provides micro and nano entr
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/madastra.git
-cd madastra
+git clone github.com/ny78455/TRADE.AI-New.git
+cd TRADE.AI-New
 ```
 
 ### Create a Virtual Environment
