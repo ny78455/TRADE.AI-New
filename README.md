@@ -2,7 +2,7 @@
 
 ## Team Details
 **Team Name:** Mad Astra  
-**Team Leader:** Nitin Yadav
+**Team Leader:** Nitin Yadav    <br>
 **Data Used:** [youdata.ai](https://www.youdata.ai/datasets/66615da70a8a03a60b471c00)
 
 ## Problem Statement: Algorithmic Trading
