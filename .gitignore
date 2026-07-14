@@ -1,0 +1,102 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# === Virtual Environments ===
+.env
+.venv
+env/
+venv/
+ENV/
+
+# === Environment Variables ===
+.env
+.env.*
+!.env.example
+
+# === Logs ===
+logs/
+*.log
+log/
+
+# === ML Artifacts (generated — do not commit) ===
+artifacts/
+!artifacts/.gitkeep
+*.h5
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+*.pt
+*.pth
+
+# === FAISS Indexes ===
+*.index
+*.faiss
+
+# === Data Files (generated) ===
+*.csv
+!tests/**/*.csv
+debug.csv
+check1.csv
+check2.csv
+checking.csv
+backtest/*.csv
+
+# === Jupyter ===
+.ipynb_checkpoints/
+*.ipynb
+
+# === Generated HTML/Reports (artifacts) ===
+MyStrategy.html
+templates/plot.html
+backtest_report.pdf
+backtest_portfolio_value.png
+text_chunks.npy
+
+# === Docker ===
+.dockerignore_cache
+
+# === IDE ===
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# === Testing ===
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+.tox/
+.nox/
+
+# === Type Checking ===
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# === Ruff/Black ===
+.ruff_cache/
+
+# === Node (if frontend added) ===
+node_modules/
+.next/
+out/
+
+# === Redis dump ===
+dump.rdb

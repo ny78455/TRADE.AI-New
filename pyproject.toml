@@ -1,0 +1,144 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "trade-ai"
+version = "2.0.0"
+description = "Production-grade algorithmic trading engine with ML signal prediction"
+readme = "README.md"
+license = { file = "LICENSE.md" }
+requires-python = ">=3.11"
+
+dependencies = [
+    # --- Data ---
+    "pandas>=2.2.0",
+    "numpy>=1.26.0",
+    "pyarrow>=15.0.0",
+
+    # --- Market Data & Brokers ---
+    "python-binance>=1.0.19",
+    "alpaca-trade-api>=3.3.1",
+    "alpaca-py>=0.28.0",
+    "yfinance>=0.2.40",
+    "websockets>=12.0",
+
+    # --- Technical Analysis ---
+    "pandas-ta>=0.3.14b0",
+    "ta>=0.11.0",
+    "tapy>=0.2.1",
+    "scipy>=1.13.0",
+
+    # --- ML ---
+    "tensorflow>=2.16.0",
+    "scikit-learn>=1.4.0",
+    "faiss-cpu>=1.8.0",
+    "sentence-transformers>=3.0.0",
+    "transformers>=4.40.0",
+    "sentencepiece>=0.2.0",
+
+    # --- API ---
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.30.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "slowapi>=0.1.9",
+    "python-multipart>=0.0.9",
+
+    # --- Background / Scheduling ---
+    "apscheduler>=3.10.4",
+    "redis>=5.0.4",
+
+    # --- Config & Logging ---
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+    "python-dotenv>=1.0.1",
+    "structlog>=24.2.0",
+
+    # --- Visualization ---
+    "plotly>=5.22.0",
+    "matplotlib>=3.9.0",
+
+    # --- Web Scraping ---
+    "playwright>=1.44.0",
+    "beautifulsoup4>=4.12.3",
+    "requests>=2.32.0",
+
+    # --- Utilities ---
+    "tqdm>=4.66.4",
+    "dill>=0.3.8",
+    "python-dateutil>=2.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.7",
+    "pytest-cov>=5.0.0",
+    "pytest-benchmark>=4.0.0",
+    "httpx>=0.27.0",            # async test client for FastAPI
+    "black>=24.4.2",
+    "ruff>=0.4.7",
+    "mypy>=1.10.0",
+    "pre-commit>=3.7.1",
+    "ipykernel>=6.29.4",
+]
+monitoring = [
+    "prometheus-client>=0.20.0",
+    "opentelemetry-sdk>=1.24.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["config*", "core*", "engine*", "strategies*", "indicators*", "ml*", "data*", "api*"]
+
+# ---- Black ----
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+# ---- Ruff ----
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "UP",  # pyupgrade
+    "N",   # pep8-naming
+]
+ignore = ["E501", "B008"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["config", "core", "engine", "strategies", "indicators", "ml", "data", "api"]
+
+# ---- Mypy ----
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true
+warn_return_any = true
+warn_unused_ignores = true
+
+# ---- Pytest ----
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-v --tb=short"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::FutureWarning",
+]
+
+# ---- Coverage ----
+[tool.coverage.run]
+source = ["config", "core", "engine", "strategies", "indicators", "ml", "data", "api"]
+omit = ["tests/*", "scripts/*"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
